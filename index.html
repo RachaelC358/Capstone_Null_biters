@@ -46,6 +46,11 @@
                 <input class="form-control me-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
               </form>
+              <div class="btn-group justify-content-center btn-block" role="button group" aria-label="document nav">
+                <button type="button" class="btn btn-secondary prev1">Previous</button>
+                <button type="button" class="btn btn-secondary">Next</button>
+              </div>
+              <button type="button" class="btn btn-success btn-block">Generate Sample</button>
             </div>
           </div>
         </nav>
@@ -68,6 +73,14 @@
   width:auto;
   height:100vh;
   align-items: flex-start;
+}
+.btn-group{
+  margin-top: 0.5rem;
+  width: 100%
+}
+.btn-group .btn
+{
+  width: 50%;
 }
 #wrapper {
   flex:100%;
