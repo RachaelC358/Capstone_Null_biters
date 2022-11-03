@@ -1,24 +1,18 @@
-# README
+## Deployment
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+the file `build.sh` contains the docker commands for:
+- Deleting the container
+- Building a new container
+- Deploying new contianer
 
-Things you may want to cover:
+# Linux
+```
+sudo bash build.sh
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Windows
+You MUST have wsl + docker working and setup first.
+in WSL
+```
+bash build.sh
+```
