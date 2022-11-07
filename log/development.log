@@ -148,3 +148,12 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 4726ms (Views: 4673.8ms | ActiveRecord: 0.0ms | Allocations: 393854)
 
 
+Started GET "/" for 127.0.0.1 at 2022-11-07 13:13:53 -0600
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 21.2ms | Allocations: 470)
+  Rendered layout layouts/application.html.erb (Duration: 31221.1ms | Allocations: 711856)
+Completed 200 OK in 31446ms (Views: 31283.7ms | ActiveRecord: 0.0ms | Allocations: 716954)
+
+
