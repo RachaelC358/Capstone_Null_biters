@@ -1,4 +1,4 @@
-FROM ruby:3.0.4
+FROM ruby:3.1.2
 
 RUN apt-get update && apt-get install -y nodejs npm python3 python3-pip poppler-utils tesseract-ocr
 
