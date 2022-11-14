@@ -53,6 +53,3 @@ PSPDFKit.load({
 
 recursive();
 
-#f=Dir.children("./change_pdf/");
-
-console.log(File.directory?(file_name));
