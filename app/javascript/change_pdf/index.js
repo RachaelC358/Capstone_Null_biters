@@ -1,4 +1,6 @@
+
 import "./assets/pspdfkit.js";
+
 
 var PDFname = "pdf/design.pdf";
 var PDFarrayCounter = 0;
@@ -50,3 +52,4 @@ PSPDFKit.load({
 }
 
 recursive();
+
