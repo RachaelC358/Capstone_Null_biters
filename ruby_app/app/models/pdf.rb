@@ -1,0 +1,2 @@
+class Pdf < ApplicationRecord
+end
