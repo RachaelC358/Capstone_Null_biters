@@ -47,7 +47,7 @@ def temp_dir(path, switch):
         for x in os.listdir(os.path.join(path, "FIN")):
             if x.endswith('.pdf'):
                 os.rename(os.path.join(path, "FIN") + "/" + x,path + "/" + x)
-                try: 
+                try:
                     os.remove(os.path.join(path, "FIN") + "/" + x)
                 except:
                     continue

@@ -28,3 +28,12 @@ Pdf.create!([{
   filename: "requirements.pdf",
   process_time: "0"
 }])
+pdf = Pdf.where(id: "0").first!
+pdf.pfile.attach(io: File.open('public/pdf/design.pdf'), filename: 'design.pdf', content_type: 'application/pdf')
+pdf.save!
+pdf = Pdf.where(id: "1").first!
+pdf.pfile.attach(io: File.open('public/pdf/projects.pdf'), filename: 'projects.pdf', content_type: 'application/pdf')
+pdf.save!
+pdf = Pdf.where(id: "2").first!
+pdf.pfile.attach(io: File.open('public/pdf/requirements.pdf'), filename: 'requirements.pdf', content_type: 'application/pdf')
+pdf.save!

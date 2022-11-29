@@ -19,7 +19,6 @@ services:
     build: './ruby_app'
     restart: always
     depends_on:
-      - ftp
       - db
     ports:
       - '3000:3000'
@@ -30,32 +29,12 @@ services:
       DB_PASSWORD: postgres
       DB_NAME: postgres
     links:
-      - ftp
       - db
     networks:
       - internal
       - default
     volumes:
       - './:/src'
-  ftp:
-    container_name: backend_ftp
-    image: stilliard/pure-ftpd:hardened
-    ports:
-      - 21:21
-      - 20:20
-      - 30000-30009:30000-30009
-    networks:
-      internal:
-        ipv4_address: 10.10.10.30
-    volumes:
-      - './ftp/data:/home/pdf_grunt/'
-      - './ftp/pass:/etc/pure-ftpd/passwd'
-    environment:
-      PUBLICHOST: "0.0.0.0"
-      FTP_USER_NAME: "pdf_grunt"
-      FTP_USER_PASS: "supersecretpassword"
-      FTP_USER_HOME: "/home/pdf_grunt"
-    restart: always
 volumes:
   db:
     driver: local

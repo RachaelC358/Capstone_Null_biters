@@ -1,6 +1,8 @@
 #!/bin/bash
 
-sleep 30
+sleep 25
+rails db:purge
+rails active_storage:install
 rails db:migrate
 rails db:create
 rails db:seed

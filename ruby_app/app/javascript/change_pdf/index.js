@@ -1,6 +1,5 @@
 import "./assets/pspdfkit.js";
 
-var PDFname = "pdf/design.pdf";
 var PDFarrayCounter = 0;
 //var PDFarrayTotal = fetch('http://0.0.0.0:3000/api/v1/pdfs');
 const response = await fetch('http://0.0.0.0:3000/api/v1/pdfs');
@@ -20,10 +19,6 @@ var previousButton = document.getElementById('previousButton');
 
 function recursive(){
 	console.log("recursive is called");
-PSPDFKit.load({
-	baseUrl,
-	container: "#pspdfkit",
-	document: PDFname
 })
 .then(instance => {
 	console.log("PSPDFKit loaded", instance);
@@ -33,8 +28,6 @@ PSPDFKit.load({
 	if (PDFarrayCounter < PDFarrayTotal){
 		PDFarrayCounter = PDFarrayCounter + 1;
 		fetch('http://0.0.0.0:3000/api/v1/pdfs/' + PDFarrayCounter);
-		PDFname = "pdf/" + PDFs[PDFarrayCounter].filename;
-		PSPDFKit.unload("#pspdfkit");
 
 		recursive();
 	}
@@ -44,8 +37,6 @@ PSPDFKit.load({
 	if (PDFarrayCounter > 0){
 		PDFarrayCounter = PDFarrayCounter -1;
 		fetch('http://0.0.0.0:3000/api/v1/pdfs/' + PDFarrayCounter);
-		PDFname = "pdf/" + PDFs[PDFarrayCounter].filename;
-		PSPDFKit.unload("#pspdfkit");
 
 		recursive();
 	}
