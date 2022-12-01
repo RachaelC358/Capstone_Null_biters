@@ -13,7 +13,6 @@ class ResourcesController < ApplicationController
         sleep 1
       end
       @pdf.process_time = "1"
-      @pdf.loading = "False"
       @pdf.save!
     end
     redirect_to "/"
