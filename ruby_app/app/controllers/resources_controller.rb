@@ -9,7 +9,11 @@ class ResourcesController < ApplicationController
     if (@pdf.process_time == "0")
       path = @pdf.pfile.blob.key
       system("python3 algo/algo.py " + path)
+      while Dir.exist?('storage/' + path[0] + path[1] + '/' + path[2] + path[3] + '/FIN')
+        sleep 1
+      end
       @pdf.process_time = "1"
+      @pdf.loading = "False"
       @pdf.save!
     end
     redirect_to "/"
@@ -24,6 +28,9 @@ class ResourcesController < ApplicationController
     if (@pdf.process_time == "0")
       path = @pdf.pfile.blob.key
       system("python3 algo/algo.py " + path)
+      while Dir.exist?('storage/' + path[0] + path[1] + '/' + path[2] + path[3] + '/FIN')
+        sleep 1
+      end
       @pdf.process_time = "1"
       @pdf.save!
     end
