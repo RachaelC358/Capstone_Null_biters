@@ -1,0 +1,48 @@
+version: '3.8'
+services:
+  db:
+    container_name: backend_database
+    build: './database'
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    networks:
+      internal:
+        ipv4_address: 10.10.10.10
+    volumes:
+      - db:/var/lib/postgresql/data
+  frontend:
+    container_name: frontend_app
+    build: './ruby_app'
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - '3000:3000'
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: postgres
+    links:
+      - db
+    networks:
+      - internal
+      - default
+    volumes:
+      - './:/src'
+volumes:
+  db:
+    driver: local
+  ftp:
+    driver: local
+networks:
+  internal:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.10.0/24
