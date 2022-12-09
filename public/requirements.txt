@@ -1,0 +1,7 @@
+PyPDF2
+essential_generators
+fpdf
+bs4
+os
+shutil
+google-search
